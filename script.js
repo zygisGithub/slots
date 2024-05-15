@@ -141,7 +141,7 @@ function spinReels() {
             playWinSound()
         }, 1100)
     }
-    if (reel1Image === reel2Image || reel2Image === reel3Image) {
+    if (reel1Image === reel2Image || reel2Image === reel3Image && reel1Stop !== reel3Stop) {
         setTimeout(function () {
             money += bet.value*2
             winDisplay('You Win', `${bet.value*2}`)
