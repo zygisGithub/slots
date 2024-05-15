@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.reel {
+    background-image: url("https://assets.codepen.io/439000/slotreel.webp");
+    width: 79px;
+    height: 237px;
+    background-repeat: repeat-y;
+    transition: background-position 1s ease;
+}
+.slots {
+    display: flex;
+}
+
