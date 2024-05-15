@@ -3,6 +3,14 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #ded0d0;
+    gap: 40px;
+    background-image: url("https://art.pixilart.com/8951575ce1f9539.gif");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .reel {
@@ -11,18 +19,46 @@ body {
     height: 237px;
     background-repeat: repeat-y;
     transition: background-position 1s ease;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 .slots {
     display: flex;
     position: relative;
+    border: 10px solid #525252;
+    overflow: hidden;
+    &::before {
+        content: '';
+        width: 200%;
+        height: 33%;
+        left: -10%;
+        border: 10px solid #525252;
+        top: 67%;
+        position: absolute;
+        background-color: rgba(32, 109, 124, 0.5);
+    }
+    &::after {
+        content: '';
+        width: 200%;
+        height: 33%;
+        left: -10%;
+        border: 10px solid #525252;
+        top: -20px;
+        position: absolute;
+        background-color: rgba(32, 109, 124, 0.5);
+    }
+}
+.border {
+    border: 10px solid #343030;
 }
 #win {
     display: none;
+    text-align: center;
     position: absolute;
     top: 20%;
     left: 10%;
     animation: win 1s infinite linear;
     width: 200px;
+    height: 200px;
 }
 
 @keyframes win {
@@ -36,7 +72,31 @@ body {
     }
     100% {
         color: yellow;
-        top: 20%;
+        top: 10%;
     }
+}
+.button {
+    display: flex;
+    text-align: center;
+    background-color: #525252;
+    border-radius: 20px;
+    font-size: 30px;
+    padding: 10px;
+    color: #ded0d0;
+    user-select: none;
+    transition: scale 0.5s ease;
+    &:hover {
+        scale: 1.1;
+        cursor: pointer;
+    }
+}
+input {
+    width: 200px;
+    height: 50px;
+    font-size: 40px;
+    -webkit-appearance: none;
+    text-align: center;
+    color: #866161;
+    background-color: #ded0d0;
 }
 

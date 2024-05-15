@@ -5,20 +5,27 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>SimpleSlots</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
     <h1 id="moneyDisplay">Your Money: 1000$</h1>
-    <div class="slots">
-        <div id="firstReel" class="reel"></div>
-        <div id="secondReel" class="reel"></div>
-        <div id="thirdReel" class="reel"></div>
-        <h1 id="win">You won</h1>
+    <div class="border">
+        <div class="slots">
+            <div id="firstReel" class="reel"></div>
+            <div id="secondReel" class="reel"></div>
+            <div id="thirdReel" class="reel"></div>
+            <h1 id="win">You won</h1>
+        </div>
     </div>
     <input type="number" placeholder="Your Bet" id="bet">
     <div class="button" id="spin">SPIN</div>
-    <img src="" alt="">
+    <audio id="spinSound" src="spin.mp3"></audio>
+    <audio id="jackpotSound" src="jackpot.mp3"></audio>
+    <audio id="winSound" src="win.mp3"></audio>
 </body>
 </html>
