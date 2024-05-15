@@ -14,5 +14,29 @@ body {
 }
 .slots {
     display: flex;
+    position: relative;
+}
+#win {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    animation: win 1s infinite linear;
+    width: 200px;
+}
+
+@keyframes win {
+    0% {
+        color: red;
+        top: 60%;
+    }
+    50% {
+        color: green;
+        top: 40%;
+    }
+    100% {
+        color: yellow;
+        top: 20%;
+    }
 }
 

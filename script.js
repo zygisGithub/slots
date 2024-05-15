@@ -1,18 +1,19 @@
 const spin = document.getElementById('spin')
 const moneyDisplay = document.getElementById('moneyDisplay')
 const bet = document.getElementById('bet')
+const win = document.getElementById('win')
 let spinning = false
 let money = 1000
 
 spin.onclick = function () {
-    if (!spinning && bet.value <= money){
+    if (!spinning && bet.value <= money && bet.value >= 1){
         money -= bet.value
         moneyUpdate()
         spinReels()
         spinning = true
         setTimeout(function () {
             spinning = false
-        },1200)
+        },1500)
     }
 }
 
@@ -65,64 +66,71 @@ function spinReels() {
     // Add your win conditions based on the images
     if (reel1Image === 'cherry' && reel2Image === 'cherry' && reel3Image === 'cherry') {
         setTimeout(function () {
-            alert('You win! on sevens')
+            winDisplay(`Mega win: ${bet.value*200}$`)
             money += bet.value*200
             moneyUpdate()
         }, 1100)
     }
     if (reel1Image === 'seven' && reel2Image === 'seven' && reel3Image === 'seven') {
         setTimeout(function () {
-            alert('You win! on bananas')
+            winDisplay(`Big win: ${bet.value*20}$`)
             money += bet.value*20
             moneyUpdate()
         }, 1100)
     }
     if (reel1Image === 'banana' && reel2Image === 'banana' && reel3Image === 'banana') {
         setTimeout(function () {
-            alert('You win! on watermelon')
+            winDisplay(`Huge win: ${bet.value*50}$`)
             money += bet.value*50
             moneyUpdate()
         }, 1100)
     }
     if (reel1Image === 'watermelon' && reel2Image === 'watermelon' && reel3Image === 'watermelon') {
         setTimeout(function () {
-            alert('You win! on lemon')
+            winDisplay(`Big win: ${bet.value*20}$`)
             money += bet.value*20
             moneyUpdate()
         }, 1100)
     }
     if (reel1Image === 'lemon' && reel2Image === 'lemon' && reel3Image === 'lemon') {
         setTimeout(function () {
-            alert('You win! on bar')
+            winDisplay(`Epic win: ${bet.value*100}$`)
             money += bet.value*100
             moneyUpdate()
         }, 1100)
     }
     if (reel1Image === 'bar' && reel2Image === 'bar' && reel3Image === 'bar') {
         setTimeout(function () {
-            alert('You win! on bell')
+            winDisplay(`Huge win: ${bet.value*50}$`)
             money += bet.value*50
             moneyUpdate()
         }, 1100)
     }
     if (reel1Image === 'bell' && reel2Image === 'bell' && reel3Image === 'bell') {
         setTimeout(function () {
-            alert('You win! on orange')
+            winDisplay(`Huge win: ${bet.value*50}$`)
             money += bet.value*50
             moneyUpdate()
         }, 1100)
     }
     if (reel1Image === 'orange' && reel2Image === 'orange' && reel3Image === 'orange') {
         setTimeout(function () {
-            alert('You win! on plum')
+            winDisplay(`Big win: ${bet.value*20}$`)
             money += bet.value*20
             moneyUpdate()
         }, 1100)
     }
     if (reel1Image === 'plum' && reel2Image === 'plum' && reel3Image === 'plum') {
         setTimeout(function () {
-            alert('You win! on cherry')
+            winDisplay(`Big win: ${bet.value*20}$`)
             money += bet.value*20
+            moneyUpdate()
+        }, 1100)
+    }
+    if (reel1Image === reel2Image || reel2Image === reel3Image) {
+        setTimeout(function () {
+            money += bet.value*2
+            winDisplay(`You win: ${bet.value*2}$`)
             moneyUpdate()
         }, 1100)
     }
@@ -136,4 +144,14 @@ function setStopPosition(reelId, stopPosition) {
 }
 function moneyUpdate () {
     moneyDisplay.innerHTML = `Your Money: ${money}$`
+}
+
+function winDisplay (winCon) {
+    win.style.display = 'block'
+    win.style.animation = 'win 1s linear'
+    win.innerHTML = `${winCon}`
+    setTimeout(function () {
+        win.style.display = 'none'
+        win.style.animation = ''
+    },1000)
 }
